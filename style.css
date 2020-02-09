@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --color-black: #000;
+  --color-black-light: #333;
+  --color-white: #fff;
+  --color-clouds: #ecf0f1;
+  --color-grey: #a5a5a5;
+  --color-yellow: #ff9f0a;
+  --button-hover: #4c4c4c;
+  --setting-hover: #bebebe;
+  --operator-hover: #ffb33d;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #232526; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #414345,
+    #232526
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #414345,
+    #232526
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+  width: 42rem;
+  height: 60rem;
+  display: grid;
+  grid-template-rows: minmax(25%, auto) minmax(75%, auto);
+  background-color: var(--color-black);
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+.previous-operand {
+  font-size: 2.2rem;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: var(--color-clouds);
+}
+
+.current-operand {
+  font-size: 3.2rem;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: var(--color-white);
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 3px;
+  padding: 3px;
+}
+
+/* Remove mozilla dotted border */
+button::-moz-focus-inner {
+  border: 0;
+}
+
+.button {
+  /* width: 100%;
+  height: 100%;
+  max-width: 8rem;
+  max-height: 8rem; */
+  font-family: inherit;
+  font-size: 2.2rem;
+  color: var(--color-white);
+  background-color: var(--color-black-light);
+  border: 0;
+  cursor: pointer;
+  transition: all 0.05s;
+}
+
+/* For keyboard user, for consistency for all browser */
+.button:focus {
+  outline: 0;
+  border: 2px solid #3498db;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
+.setting {
+  color: var(--color-black);
+  background-color: var(--color-grey);
+}
+
+.setting:hover {
+  background-color: var(--setting-hover);
+}
+
+.operator,
+.equals {
+  font-size: 2.8rem;
+  background-color: var(--color-yellow);
+}
+
+.operator:hover,
+.equals:hover {
+  background-color: var(--operator-hover);
+}
+
+.zero {
+  max-width: 100%;
+  grid-column: span 2;
+}
+
+.equals {
+  max-height: 100%;
+  grid-column: 4 / 5;
+  grid-row: span 2;
+}
+
+/* 420px max-width */
+@media only screen and (max-width: 26.25em) {
+  .container {
+    width: 100%;
+  }
+}
+
+/* 600px max-height */
+@media only screen and (max-height: 37.5em) {
+  .container {
+    height: 100%;
+  }
+}
